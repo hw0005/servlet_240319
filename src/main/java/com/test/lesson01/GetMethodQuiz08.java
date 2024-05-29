@@ -34,31 +34,36 @@ public class GetMethodQuiz08 extends HttpServlet{
 		// response 출력
 		PrintWriter out = response.getWriter();
 		
-		
-		out.print("<html><head><title>검색 결과</title></head><body>");
-		Iterator<String> iter = list.iterator();
-		while (iter.hasNext()) {
-			String line = iter.next();
-//			System.out.println(line);
-			if (line.contains(search)) {
-				out.print(line + "<br>");
-			}
-		}
-		out.print("</body></html>");
-		
-		
+// 선생님 풀이
 //		out.print("<html><head><title>검색 결과</title></head><body>");
-//		
-//		for (int i = 0; i < list.size(); i++) {
-//			if (list.get(i).contains(search)) {
-//				String[] save = list.get(i).split(" ");
-//				for (int j = 0; j < save.length; j++) {
-//					
-//					out.print(list.get(i) + "<br>");
-//				}
+//		Iterator<String> iter = list.iterator();
+//		while (iter.hasNext()) {
+//			String line = iter.next();
+////			System.out.println(line);
+//			if (line.contains(search)) {
+//				// 1) replace 함수 쓰기
+////				line = line.replace(search, "<b>" + search + "</b>");
+////				out.print(line + "<br>");
+//				
+//				// 2) split 함수 쓰기
+//				String[] words = line.split(search);
+//				out.print(words[0] + "<b>" + search + "</b>" + words[1] + "<br>");
+//				
+//				
 //			}
 //		}
 //		out.print("</body></html>");
+		
+// 내가 한 거	
+		out.print("<html><head><title>검색 결과</title></head><body>");
+		
+		for (int i = 0; i < list.size(); i++) {
+			if (list.get(i).contains(search)) {
+				String[] words = list.get(i).split(search);
+				out.print(words[0] + "<b>" + search + "</b>" + words[1] + "<br>");
+			}
+		}
+		out.print("</body></html>");
 	}
 	
 }
