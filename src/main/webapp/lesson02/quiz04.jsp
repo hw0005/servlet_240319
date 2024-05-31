@@ -17,11 +17,11 @@
 		<div class="d-flex align-items-end">
 			<input type="text" name="cm" class="form-control col-1">cm
 		</div>
-		<div class="d-flex">
-			<label>인치 <input type="checkbox" name="unit" value="인치"></label>
-			<label>야드 <input type="checkbox" name="unit" value="야드"></label>
-			<label>피트 <input type="checkbox" name="unit" value="피트"></label>
-			<label>미터 <input type="checkbox" name="unit" value="미터"></label>
+		<div>
+			<label>인치<input type="checkbox" name="type" value="inch"></label>
+			<label>야드<input type="checkbox" name="type" value="yard"></label>
+			<label>피트<input type="checkbox" name="type" value="feet"></label>
+			<label>미터<input type="checkbox" name="type" value="meter"></label>
 		</div>
 		<button type="submit" class="btn btn-success">변환하기</button>
 		
