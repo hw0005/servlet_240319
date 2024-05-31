@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page la	nguage="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -11,6 +11,8 @@
 		String nickname = request.getParameter("nickname");
 		String hobby = request.getParameter("hobby");
 		String animal = request.getParameter("animal");
+		String[] foodArr =  request.getParameterValues("food"); // 여러개 항목 받을때 getParameterValues()
+		String fruit = request.getParameter("fruit");
 	%>
 	
 	<table border="1">
@@ -28,11 +30,25 @@
 		</tr>
 		<tr>
 			<th>선호하는 음식</th>
-			<td></td>
+			<td>
+				<%
+					if (foodArr != null) {
+						String result = "";
+						for (String food : foodArr) {
+							result += food + ",";	
+						}
+						
+						// 맨 뒤에 붙은, (콤마) 제거
+						// abc -> c 제거 -> ab만 추출 substring(0, 2) => 2 => 문자열 길이 -1
+						result = result.substring(0, result.length() - 1);
+						out.print(result);					
+					}
+				%>
+			</td>
 		</tr>
 		<tr>
 			<th>선호하는 과일</th>
-			<td></td>
+			<td><%= fruit %></td>
 		</tr>
 	</table>
 </body>
