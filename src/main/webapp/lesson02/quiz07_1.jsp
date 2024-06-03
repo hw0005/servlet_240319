@@ -28,9 +28,7 @@
 	    map = new HashMap<String, Object>() {{ put("name", "반올림피자"); put("menu", "피자"); put("point", 4.3); } };
 	    list.add(map);
 	    
-	    // request params
-	    String search = request.getParameter("search");
-	    String exclusion = request.getParameter("exclusion");
+
 	    
 	%>
 	<div class="container">
@@ -45,18 +43,28 @@
 			</thead>
 			<tbody>
 				<%
+				    // request params
+				    String search = request.getParameter("search");
+				
+					// 4점 이하 제외 체크됨:"true" 체크안됨:null
+				    String starFilter = request.getParameter("starFilter");
+					boolean exclude = starFilter != null; // 체크됨=> true일 때 4점 이하 제외
+					
+					
 					for(Map<String, Object> item : list) {
-						if (exclusion != null) {
-							if (item.get("menu").equals(search)) {
+						if (search.equals(item.get("menu"))) {
+							// skip 조건이 체크되어 있고 스킵 되어야 할 때 skip(continue)
+							if (exclude && (double)item.get("point") <= 4.0) {
+								continue; // 안 뿌리고 skip
+							}
 				%>
-				<tr>
-					<td><%= item.get("menu") %></td>
-					<td><%= item.get("name") %></td>
-					<td><%= item.get("point") %></td>
-				</tr>
+					<tr>
+						<td><%= item.get("menu") %></td>
+						<td><%= item.get("name") %></td>
+						<td><%= item.get("point") %></td>
+					</tr>
 				
 				<%
-							}
 						}
 					}
 				%>

@@ -16,7 +16,7 @@
 			<div class="form-group d-flex align-items-center">
 				<input type="text" name="search" class="form-control col-3">
 				<label class="m-0">
-					<input type="checkbox" name="exclusion" class="ml-2" value="true">
+					<input type="checkbox" name="starFilter" class="ml-2" value="true">
 					4점 이하 제외
 				</label>
 			</div>
