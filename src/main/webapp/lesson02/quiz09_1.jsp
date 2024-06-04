@@ -90,14 +90,15 @@
 	        		<%
 	        			// request param
 	        			String category = request.getParameter("category");
-	        			for (Map<String, String> tv : list) {
-	        				if (category.equals(tv.get("category"))) {
+	        			for (Map<String, String> item : list) {
+	        				if (category == null || category.equals(item.get("category"))) {
+	        					//카테고리 null(전체) 또는 카테고리 일치 행
 	        				
 	        		%>
 		        		<tr>
-		        			<td><%= tv.get("ch") %></td>
-		        			<td><%= tv.get("name") %></td>
-		        			<td><%= tv.get("category") %></td>
+		        			<td><%= item.get("ch") %></td>
+		        			<td><%= item.get("name") %></td>
+		        			<td><%= item.get("category") %></td>
 		        		</tr>
 	        		<%
 	        				}
