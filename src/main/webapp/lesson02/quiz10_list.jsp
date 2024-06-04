@@ -99,8 +99,6 @@
     musicList.add(musicInfo);
 %>
 	<div id="wrap" class="container">
-		<form method="get" action="/lesson02/quiz10_info.jsp">
-		
 			<header class="d-flex align-items-center">
 				<!-- 로고 -->
 				<div class="col-2">
@@ -108,12 +106,14 @@
 				</div>
 				<!-- 검색 -->
 				<div class="col-10">
-					<div class="input-group">
-						<input type="text" class="form-control col-6">
-						<div class="input-group-append">
-							<input type="button" class="btn btn-info" value="검색">
+					<form method="get" action="/lesson02/quiz10_info.jsp">
+						<div class="input-group">
+							<input type="text" class="form-control col-6" name="search">
+							<div class="input-group-append">
+								<button type="submit" class="btn btn-info">검색</button>
+							</div>
 						</div>
-					</div>
+					</form>
 				</div>
 			</header>
 			
@@ -175,7 +175,6 @@
 				<hr>
 				Copyright 2021. melong All Rights Reserved.
 			</footer>
-		</form>
 	</div>
 
 </body>

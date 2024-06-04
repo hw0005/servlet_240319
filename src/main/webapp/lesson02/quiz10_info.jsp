@@ -105,18 +105,30 @@
 		// 보여줄 맵 저장
 		Map<String, Object> target = null;
 			
-	    // request params
-	    int id = Integer.valueOf(request.getParameter("id"));
-	    for (Map<String, Object> item : musicList) {
-	    	if (id == (int)item.get("id")) {
-	    		target = item;
-	    		break;
+	    // 1. id (a태그)
+	    if (request.getParameter("id") != null) {
+		    int id = Integer.valueOf(request.getParameter("id"));
+		    for (Map<String, Object> item : musicList) {
+		    	if (id == (int)item.get("id")) {
+		    		target = item;
+		    		break;
+		    	}
 	    	}
-    	}
+	    }
+	    
+	    // 2. search (form태그)
+	    if (request.getParameter("search") != null) {
+	    	String search = request.getParameter("search");
+	    	for (Map<String, Object> item : musicList) {
+	    		if (search.equals(item.get("title"))) {
+	    			target = item;
+	    			break;
+	    		}
+	    	}
+	    }
+	    
 	%>
 	<div id="wrap" class="container">
-		<form method="get" action="/lesson02/quiz10_info.jsp">
-		
 			<header class="d-flex align-items-center">
 				<!-- 로고 -->
 				<div class="col-2">
@@ -124,12 +136,14 @@
 				</div>
 				<!-- 검색 -->
 				<div class="col-10">
-					<div class="input-group">
-						<input type="text" class="form-control col-6">
-						<div class="input-group-append">
-							<input type="button" class="btn btn-info" value="검색">
+					<form method="get" action="/lesson02/quiz10_info.jsp">
+						<div class="input-group">
+							<input type="text" class="form-control col-6" name="search">
+							<div class="input-group-append">
+								<button type="submit" class="btn btn-info">검색</button>
+							</div>
 						</div>
-					</div>
+					</form>
 				</div>
 			</header>
 			
@@ -146,6 +160,9 @@
 			
 			
 			<section class="contents mt-3">
+			<%
+				if (target != null) {
+			%>
 				<h3 class="font-weight-bold">곡 정보</h3>
 				<!-- 아티스트 정보 영역 -->
 				<div class="d-flex border border-success p-3">
@@ -179,15 +196,20 @@
 					<div class="font-weight-bold">
 						가사 정보 없음
 					</div>
-
 				</div>
+				<%
+				} else {
+				%>
+				검색된 결과 없음
+				<%
+				}
+				%>
 			</section>
 			
 			<footer>
 				<hr>
 				Copyright 2021. melong All Rights Reserved.
 			</footer>
-		</form>
 	</div>
 
 
