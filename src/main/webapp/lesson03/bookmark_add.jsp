@@ -12,14 +12,14 @@
 <body>
 	<div class="container">
 		<h1 class="font-weight-bold">즐겨찾기 추가</h1>
-		<form method="post" action="/lesson03/quiz03_insert">
+		<form method="post" action="/lesson03/quiz02_insert">
 			<div class="font-weight-bold">
 				사이트명:
 				<input type="text" name="name" class="form-control col-3"><br>
 				사이트 주소:
 				<input type="text" name="url" class="form-control col-6">
 			</div>
-			<button type="submit" class="form-control btn btn-success col-1 mt-4">추가</button>
+			<button type="submit" class="form-control btn btn-success col-1 mt-3">추가</button>
 		</form>
 	</div>
 </body>

@@ -27,6 +27,7 @@
 				<tr>
 					<th>사이트</th>
 					<th>사이트 주소</th>
+					<th>삭제</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -36,7 +37,7 @@
 				<tr>
 					<td><%= res.getString("name") %></td>
 					<td><a href="<%= res.getString("url") %>"><%= res.getString("url") %></a></td>
-					<td><a href="/lesson03/quiz03_delete?id=<%= res.getInt("id") %>">삭제하기</a></td>
+					<td><a href="/lesson03/quiz02_delete?id=<%= res.getInt("id") %>" class="btn btn-danger">삭제하기</a></td>
 				</tr>
 				<%
 					}

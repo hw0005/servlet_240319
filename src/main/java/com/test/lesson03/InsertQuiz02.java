@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.test.common.MysqlService;
 
-@WebServlet("/lesson03/quiz03_insert")
-public class InsertQuiz03 extends HttpServlet{
+@WebServlet("/lesson03/quiz02_insert")
+public class InsertQuiz02 extends HttpServlet{
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
@@ -39,6 +39,6 @@ public class InsertQuiz03 extends HttpServlet{
 		ms.disconnect();
 		
 		// 목록 화면에 redirect
-		response.sendRedirect("/lesson03/quiz03.jsp");
+		response.sendRedirect("/lesson03/bookmark_list.jsp");
 	}
 }
